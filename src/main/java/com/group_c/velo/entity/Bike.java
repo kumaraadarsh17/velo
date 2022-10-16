@@ -26,7 +26,7 @@ public class Bike {
 
     @Column(name = "basket")
     private Boolean Basket;
-    
+
     @Column(name = "rate", nullable = false)
     private Integer rate;
 

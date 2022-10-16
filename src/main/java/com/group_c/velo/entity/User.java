@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.naming.Name;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -19,7 +18,8 @@ import javax.persistence.Table;
 @Setter
 public class User {
     @Id
-    private String rollNumber;
+    @Column(name = "roll_number", nullable = false, unique = true)
+    private Long rollNumber;
 
     @Column(name = "first_name", nullable = false)
     private String firstName;
