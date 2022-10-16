@@ -27,7 +27,7 @@ public class BikeServiceImplementation implements BikeService{
     }
 
     @Override
-    public void DeleteBike(Long id) {
+    public void deleteBike(Long id) {
         bikeRepository.deleteById(id);
     }
 

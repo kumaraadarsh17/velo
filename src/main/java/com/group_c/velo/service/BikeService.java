@@ -7,6 +7,6 @@ import java.util.List;
 public interface BikeService {
     Bike getBike(Long id);
     Bike saveBike(Bike bike);
-    void DeleteBike(Long id);
+    void deleteBike(Long id);
     List<Bike> getAllBikes();
 }

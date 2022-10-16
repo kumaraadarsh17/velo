@@ -26,9 +26,15 @@ public class UserController {
         return new ResponseEntity<>(userService.saveUser(user), HttpStatus.CREATED);
     }
 
-    @GetMapping("/")
+    @GetMapping("/all")
     public ResponseEntity<List<User>> getAllUsers(){
         List<User> users = userService.getAllUser();
         return new ResponseEntity<>(users, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{rollNumber}")
+    public ResponseEntity<HttpStatus> deleteBike(@PathVariable Long rollNumber){
+        userService.deleteUser(rollNumber);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
