@@ -21,6 +21,9 @@ public class User {
     @Column(name = "roll_number", nullable = false, unique = true)
     private Long rollNumber;
 
+    @Column(name = "password", nullable = false)
+    private String password;
+
     @Column(name = "first_name", nullable = false)
     private String firstName;
 

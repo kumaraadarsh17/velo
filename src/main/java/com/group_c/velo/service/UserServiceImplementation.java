@@ -3,6 +3,7 @@ package com.group_c.velo.service;
 import com.group_c.velo.entity.User;
 import com.group_c.velo.repository.UserRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,8 +12,8 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class UserServiceImplementation implements UserService {
-    UserRepository userRepository;
-
+    private UserRepository userRepository;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
     public User getUser(Long rollNumber) {
@@ -26,6 +27,7 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public User saveUser(User user) {
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
 
