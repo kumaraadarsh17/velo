@@ -1,6 +1,7 @@
 package com.group_c.velo.service;
 
 import com.group_c.velo.entity.User;
+import com.group_c.velo.exception.EntityNotFoundException;
 import com.group_c.velo.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -21,8 +22,7 @@ public class UserServiceImplementation implements UserService {
         if(user.isPresent()){
             return user.get();
         }
-        //TODO: implement an exception for user not found
-        else return null;
+        else throw new EntityNotFoundException(rollNumber, User.class);
     }
 
     @Override

@@ -30,4 +30,10 @@ public class Bike {
     @Column(name = "rate", nullable = false)
     private Integer rate;
 
+    @Column(name = "lat", nullable = false)
+    private Float lat;
+
+    @Column(name = "lon", nullable = false)
+    private Float lon;
+
 }

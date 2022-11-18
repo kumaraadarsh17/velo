@@ -34,7 +34,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{rollNumber}")
-    public ResponseEntity<HttpStatus> deleteBike(@PathVariable Long rollNumber){
+    public ResponseEntity<HttpStatus> deleteUser(@PathVariable Long rollNumber){
         userService.deleteUser(rollNumber);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
