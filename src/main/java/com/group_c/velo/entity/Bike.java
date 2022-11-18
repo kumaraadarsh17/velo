@@ -36,4 +36,7 @@ public class Bike {
     @Column(name = "lon", nullable = false)
     private Float lon;
 
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "owner_id", referencedColumnName = "roll_number")
+    private User user;
 }
