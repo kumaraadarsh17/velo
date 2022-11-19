@@ -21,14 +21,14 @@ public class VeloApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args){
-		User user = new User(
-				102003516L,
-				"password_test",
-				"Kumar",
-				"Aadarsh",
-				"9041844219",
-				"O");
-		userRepository.save(user);
+//		User user = new User(
+//				102003516L,
+//				"password_test",
+//				"Kumar",
+//				"Aadarsh",
+//				"9041844219",
+//				"O");
+//		userRepository.save(user);
 	}
 
 	@Bean

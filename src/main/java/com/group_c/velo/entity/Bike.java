@@ -19,13 +19,13 @@ public class Bike {
     private Long Id;
 
     @Column(name = "company", nullable = false)
-    private String Company;
+    private String company;
 
     @Column(name = "gear")
-    private Boolean Gear;
+    private Boolean gear;
 
     @Column(name = "basket")
-    private Boolean Basket;
+    private Boolean basket;
 
     @Column(name = "rate", nullable = false)
     private Integer rate;
