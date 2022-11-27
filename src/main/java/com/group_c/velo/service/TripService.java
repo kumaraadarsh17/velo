@@ -6,5 +6,5 @@ public interface TripService {
     Trip getTrip(Long id);
     void deleteTrip(Long id);
     Trip saveTrip(Trip trip);
-    Long getDuration(Long id);
+    Double getDuration(Long id);
 }

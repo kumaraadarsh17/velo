@@ -31,12 +31,12 @@ public class TripServiceImplementation implements TripService{
     }
 
     @Override
-    public Long getDuration(Long id){
+    public Double getDuration(Long id){
         Optional<Trip> trip = tripRepository.findById(id);
         if(trip.isPresent()){
             Trip currentTrip = trip.get();
             Long duration = currentTrip.getEndTime().getTime() - currentTrip.getStartTime().getTime();
-            Long minutes = duration/(60*1000);
+            Double minutes = duration/(60.0*1000);
             return minutes;
         }   else return null;
     }
