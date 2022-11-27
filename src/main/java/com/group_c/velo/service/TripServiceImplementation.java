@@ -29,4 +29,15 @@ public class TripServiceImplementation implements TripService{
     public Trip saveTrip(Trip trip) {
         return tripRepository.save(trip);
     }
+
+    @Override
+    public Long getDuration(Long id){
+        Optional<Trip> trip = tripRepository.findById(id);
+        if(trip.isPresent()){
+            Trip currentTrip = trip.get();
+            Long duration = currentTrip.getEndTime().getTime() - currentTrip.getStartTime().getTime();
+            Long minutes = duration/(60*1000);
+            return minutes;
+        }   else return null;
+    }
 }

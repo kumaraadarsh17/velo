@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "*")
 @RestController
 @AllArgsConstructor
 @RequestMapping("/trip")
@@ -25,7 +26,7 @@ public class TripController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Trip> saveBike(@RequestBody Trip trip){
+    public ResponseEntity<Trip> saveTrip(@RequestBody Trip trip){
         return new ResponseEntity<>(tripService.saveTrip(trip), HttpStatus.CREATED);
     }
 
@@ -33,8 +34,14 @@ public class TripController {
     public ResponseEntity<Long> getPrice(@PathVariable Long id){
         Trip trip = tripService.getTrip(id);
         Long duration = trip.getEndTime().getTime() - trip.getStartTime().getTime();
-        Long minutes = duration/60*1000;
+        Long minutes = tripService.getDuration(id);
         Long price = minutes*trip.getBike().getRate();
         return new ResponseEntity<>(price, HttpStatus.OK);
+    }
+
+    @GetMapping("/duration/{id}")
+    public ResponseEntity<Long> getDuration(@PathVariable Long id){
+        Long duration = tripService.getDuration(id);
+        return new ResponseEntity<>(duration, HttpStatus.OK);
     }
 }
